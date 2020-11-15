@@ -19,22 +19,18 @@ void handle_io(bool end, string filename=""){
 int main(){
   handle_io(true);
 
-  int t;
+  ll t;
   cin >> t;
-  while(t--){
-    int n;
-    cin >> n;
-    for(int i = 1; i <= n-1; i++){
-      for(int j = n; j > i; j--){
-        cout << j << ' ';
-      }
-    }
+  for(int f = 1; f <= t; f++){
+    ll n, k, s;
+    cin >> n >> k >> s;
+    cout << "Case #" << f << ": ";
 
-
+    ll rst = k-1+1+n;
+    ll bck = k-1+k-s+n-s+1;
+    // cout << rst << ' ' << bck << ' ';
+    cout << min(rst, bck) << '\n';
   }
 
   return 0;
 }
-
-/*
-*/
