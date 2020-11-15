@@ -1,0 +1,82 @@
+|******************|
+|   INTRODUCTION   |
+|******************|
+
+1. sum from x=1...n of x^k has a closed formula that is a polynomial of deg. k+1.
+    - sum ^^ of x is n(n + 1)/2
+    - sum ^^ of x^2 is n(n+1)(2n+1)/6
+    - sum ^^ of x^3 is [n(n+1)/2]^2
+
+2. Arithmetic Seq.
+    - sum of n numbers, first is a + last is b => n(a+b)/2
+
+3. Geometric Seq.
+    - sum of numbers from a to b => (bk-a)/(k-1) where k is common ratio
+
+4. Harmonic Sum : sum from x = 1...n of 1/x
+    -  1 + 1/2 + 1/3 + 1/4 + 1/5 + 1/6... <= 1 + 1/2 + 1/2 + 1/4 + 1/4 + 1/4...
+    - 1 + ... + 1/n <= log_{2}_(n) + 1
+
+5. Set Theory
+    - Set is a collection of elements
+    - |A| is the size of A : number of elements
+    - A n B is intersection : elements in both
+    - A U B is union : elements in A or B or both
+    - A^- is the complement : elements not in A
+    - A n B^- the difference : elements in A and not in B
+
+    - A is a subset of S if all elements in A are in S
+    - set S has 2^|S| subsets
+    
+    - N (natural numbers), Z (integers), Q (rational numbers), and R (real numbers)
+    - {f(n):n E S} - applies function on each element of set
+
+6. Logic
+    - True(1) False(0)
+    - -| or ! is negation (opposite value)
+    - ^ conjunction (AND)
+    - v disjunction (OR)
+    - => implication (A => B is true if whenever A is true also B is true)
+    - <=> equivalence (A <=> B is true if A and B are both true/false)
+    - Predicate is an expression that evaluates true/false based on parameters -- Ex. P(x) - prime predicate
+    - Quantifier connects a logical expression to the elements of a set 
+        - (upside down A) for all (reverse E) there is
+        - Ex. Ax(Ey(y<x)) means that for each element x in the set there is a y in the set such that 
+    
+    - Ax((x > 1 ^ !P(x))) => (Ea(Eb(a > 1 ^ b > 1 ^ x=ab))) means that for all x if x > 1 and not prime then there exists an a and b both greater than 1 such that x=a*b
+
+7. Functions
+    - FLOOR function rounds down
+    - CEILING function rounds up
+    - MIN returns the minimum of all x1, x2, ... xn
+    - MAX returns the maximum of all x1, x2, ... xn
+    - n! = 1 * 2 * ... * n
+    - Fibonacci numbers
+        - f(0) = 0
+        - f(1) = 1
+        - f(n) = f(n - 1) + f(n - 2)
+        - f(n) = [(1 + sqrt(5))^n - (1 - sqrt(5))^n]/[(2^n)sqrt(5)]
+
+    - LOGS
+        - The number of digits of an integer x in base b is FLOOR(log_{2}_(x) + 1)
+
+8. Contest + Resources
+    - IOI
+    - ICPC
+    - Online contests
+        - Codeforces
+        - AtCoder
+        - CS Academy
+        - HackerRank
+        - Topcoder
+        - Facebook Hacker Cup
+        - Google Code Jam
+        - Yandex Algorithm
+    - Books
+        - Programming Challenges: The Programming Contest Training Manual - S. S. Skiena and M. A. Revilla
+        - Competitive Programming 3: The New Lower Bound of Programming Contests - S. Halim and F. Halim
+        - Looking for a Challenge? The Ultimate Problem Set from the University of Warsaw Programming Competitions - K. Diks et al.
+        - Introduction to Algorithms - T. H. Cormen, C. E. Leiserson, R. L. Rivest and C. Stein
+        - Algorithm Design - J. Kleinberg and E. Tardos
+        - The Algorithm Design Manual - S. S. Skiena
+

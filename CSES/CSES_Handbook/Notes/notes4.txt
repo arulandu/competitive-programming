@@ -1,0 +1,147 @@
+|***********************|
+|    Data structures    |
+|***********************|
+
+1. Dynamic arrays
+    - arrays whose size can change during execution
+    - vector<int> v;
+        - push_back adds to the back
+        - pop_back removes from the back
+        - default value and number of elements
+            - vector<int> v(10) => size 10 init val 0
+            - vecotor<int> v(10, 5) => size 10 init val 5
+        
+2. Strings
+    - access characters like an array: str[2]
+    - substr(k, x) : substring starts at k has length x
+    - find(t) : position of substring t
+    - immutable
+    - combine with +
+    - is a dynamic array
+
+3. Sets
+    - collection of elements
+    - set => O(log(n)) uses balanced binary tree
+        - maintains order
+        - has more functions
+    - unordered set => O(1) uses hashing
+        - more efficient
+
+    - insert() : adds an elements
+    - count() : number of occurrences of an element either 0 or 1
+    - erase() : removes an element from the set
+    - elements are distinct
+
+    - multiset/unordered_multiset
+        - same as a set but can contain multiple instances of an element
+        - erase removes all instances of an element
+
+4. Maps
+    - generalized array with key-value pairs
+
+    - map => O(log(n)) uses a balanced binary tree
+    - unordered_map => O(1) uses hashing
+
+    - map[key] to access value at key
+    - count() checks if a key exists
+    - Print Key and value pairs
+        for(auto x : m){
+            cout << x.first << " " << x.second << "\n";
+        }
+
+5. Iterators and Ranges
+    - Iterator
+        - a variable that points to an element in a data structure
+        - s.begin()
+            - points to the first element
+        - s.end()
+            - points after the last element
+        
+        - s.begin() and s.end() define a half-open range
+
+        Set Iterators
+            -
+                set<int>::iterator it = s.begin();
+            or
+                auto it = s.begin();
+
+        - access element that iterator points to with *
+            - cout << *it << "\n"
+        - move iterators with ++ or --
+
+        - lower_bound(x) returns iterator to smallest element whose val is at least x
+        - upper_bound(x) returns iterator to smallest element whose val is larger than x
+            - both return .end() if not found
+            - not supported by unordered_set due to order
+
+6. Bitset
+    - Array that stores either 0 or 1
+    - less memory
+    - Creation
+        - bitset<sizehere> s;
+        - bitset<sizehere> s(string("string form"))
+
+7. Deque
+    - Dynamic array whose size can be efficiently changed at both ends of the array.
+    - Similar to vector but slightly more complex and slower. Still O(1)
+
+    - push_back
+    - pop_back
+    - push_front **
+    - pop_front **
+
+8. Stack
+    - 2 O(1) operations
+    - push: add element to the top
+    - pop: remove element from the top
+    - top: access top element without removal
+
+9. Queue
+    - 2 O(1) operations
+    - push: add element to the end of the Queue
+    - pop: remove front element
+    - front: access front element without removal
+            
+10. Priority Queue
+    - Maintains a set of elements
+    - Insertion O(log(n))
+    - Removal O(log(n))
+    - Retrieval O(1)
+    - Heap structure (simpler than ordered set with balanced binary tree)
+    - Default sorted in decreasing order with largest element in the front
+
+    - for find/remove of min. element
+        - priority_queue<int, vector<int>, greater<int>> q;
+
+11. Policy-based data structures
+    - Add lines:
+        - #include <ext/pb_ds/assoc_container.hpp>
+        - using namespace __gnu_pbds;
+
+    - indexed_set
+        - set that is indexed like an array
+        - typedef tree<int,null_type,less<int>,rb_tree_tag, tree_order_statistics_node_update> indexed_set;
+        - find_by_order() : returns iterator to the element at given position
+        - order_of_key() : returns position of given element
+
+12. Sorting Comparison
+    - Problems can be solved with data structures or sorting usually
+        - differences in efficiency
+    - Example Problem: Find the size of the intersection of 2 n element lists A and B
+        - Algorithm 1:
+            - Construct a set of elements in A
+            - Iterate through B and check if it belongs to A
+            - O(nlog(n)) due to set structure
+
+        - Algorithm 2:
+            - unordered set with Algorithm 1 implementation
+            - O(n) due to unordered
+
+        - Algorithm 3:
+            - Sort A and B
+            - Iterate through both lists and find the common elements
+            - Sorting O(nlog(n))
+            - Iteration O(n)
+            - Total O(nlog(n))
+
+        - Algorithm 3 performs the best as there is only 1 sorting operation and rest is O(n)

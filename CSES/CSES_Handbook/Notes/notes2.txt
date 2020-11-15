@@ -1,0 +1,47 @@
+|************************|
+|     TIME COMPLEXITY    |
+|************************|
+
+
+1. O(...) is a notation used for time complexity usually using notation
+    - k nested loops => O(n^k)
+    - 3n, n+5, CEIL(n/2) => O(n)
+    - Take the largest complexity of each phase
+    - Use multiple variables if needed
+    - Recursive function complexity is based on the number of times the function is called
+
+2. Complexity classes
+    - O(1) CONSTANT-TIME
+    - O(log(n)) LOGRITHMIC
+    - O(sqrt(n)) SQUARE ROOT ALGORITHM; O(log(n)) <= O(sqrt(n)) <= O(n)
+    - O(n) LINEAR
+    - O(nlog(n)) -- Usually Happens with Sorting 
+    - O(n^2) QUADRATIC -- 2 Nested Loops
+    - O(n^3) CUBIC -- 3 Nested Loops
+    - O(2^n) -- Usually Implies Algorithm Loops Through Subsets
+    - O(n!) -- Implies Algorithm Loops through all Permutations of the input elements
+    - Algorithm is POLYNOMIAL if O(n^k) where k is constant - roughly efficient
+    - NP-HARD PROBLEMS have no known polynomial algorithm
+
+3. Estimating Efficiency
+    - Roughly 10^8 - 10^9 operations per second
+    - For one second:
+        - n <= 10 O(n!)
+        - n <= 20 O(2^n)
+        - n <= 500 O(n^3)
+        - n <= 5000 O(n^2)
+        - n <= 10^6 O(nlogn) or O(n)
+        - n >> O(1) or O(log(n))
+
+4. Maximum Subarray Sum
+    - Algorithm 1 - O(n^3):
+        - Loop Through Every possible Subarray
+    - Algorithm 2 - O(n^2):
+        - Calculate the sum at the same time the right end of the subarray moves
+    - Algorithm 3 - O(n) (Kadane's Algorithm):
+        - For each array position, calculate the maximum subarray that ends at the position
+            - Subproblem: Max subarray ending at position k
+                - 1. The subarray only contains the element at k
+                - 2. The subarray consists of a subbary to k-1 with k appended
+                - Therfore the max subarray ending at k is max([k], sub(k - 1))
+        

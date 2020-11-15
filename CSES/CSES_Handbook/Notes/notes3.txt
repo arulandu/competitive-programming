@@ -1,0 +1,124 @@
+|***************|
+|    SORTING    |
+|***************|
+
+1. Best efficiency is O(nlogn)
+
+2. Inversions
+    - A pair of elements (array[a], array[b]) | a < b ^ array[a] > array[b]
+
+3. Sorts:
+    A. O(n^2) Bubble Sort
+        - n rounds where algorithm iterates through elements and swaps consecutives
+        -
+            for i = 0 to n:
+                for j = 0 to n - 1:
+                    if array[j] > array[j+1]:
+                        swap(array[j], array[j+1])
+    
+    B. O(nlog(n)) Merge sort (recursion)
+        - If a = b don' do anything
+        - Calculate the position of the middle element: k=FLOOR((a+b)/2)
+        - Recursively sort subarray a-k
+        - Recursively sort subarray k+1-b
+        - Merge the sorted a-k and k+1-b into a sorted subarray array[a-b]
+
+    C. O(n) Counting Sort
+        - CONDITION: every element is an integer between 0 and c => O(n)=c
+        - Bookkeeping array whose indices are the elements of the original array
+        - Iterate through original array and calculate how many times each element appears in the array
+        - Use this Bookkeeping array to reconstruct array in sorted form if necessary
+        - Only works for small c
+
+4. C++ SORTING
+    -  use std sort function
+        - 
+            vector<int> v = {2, 5, 1, 7, 3, 4};
+            sort(v.begin(), v.end());
+
+            int a[] = {2, 5, 3, 4, 6, 8, 1, 2};
+            sort(a, a+n);
+
+        - structs need an comparison operator
+            struct P {
+                int x, y;
+                bool operator<(const P &p){
+                    if (x != p.x) {
+                        return x < p.x;
+                    } else {
+                        return y < p.y;
+                    }
+                }
+            }
+
+        - external comparison functions
+            bool comp(string a, string b){
+                if(a.size() != b.size()){
+                    return a.size() < b.size();
+                }
+                return a < b;
+            }
+
+            sort(v.begin(), v.end(), comp);
+
+5. Binary search O(log(n))
+    - Array needs to be sorted previously
+    - Method 1: check middle element of region, if equals terminate otherwise recur left or right depending on value
+        -
+            int a = 0, b = n-1
+            while (a <= b) {
+                int k = (a+b)/2;
+                if (array[k] == x){
+                    // x if found at ind k
+                }
+
+                if(array[k] > x){
+                    b = k - 1;
+                } else {
+                    a = k+1;
+                }
+            }
+
+    - Method 2: Jumping with length that continuously halves
+        - 
+            int k = 0;
+            for (int b = n/2; b >= 1; b /= 2) {
+                while (k+b < n && array[k+b] <= x){
+                    k += b;
+                }
+            }
+
+            if (array[k] == x) {
+                // x found at index k
+            }
+
+6. C++ functions
+    - lower_bound returns a pointer to the first array element whose value is at least x
+    - upper_bound returns a pointer to the first array element whose value is at greater than x
+    - equal_range returns both above pointers
+
+7. Finding the smallest solution
+    - Find value where a function changes : ok(x) is false x < k and true x >= k
+    - First find the largest x that is false then add 1:
+    - 
+        int x = -1
+        for(int j = z; j >=1; j/=2){
+            while(!ok(x+j)){
+                x+= j;
+            }
+        }
+
+        int k = x + 1;
+
+8. Finding the maximum value
+    - f(x) is increasing then decreasing find k f(x)<f(x+1) when x < k and f(x) > f(x+1) x >=k
+    -
+        int x = -1
+        for(int j = z; j >=1 j/=2){
+            while(f(j+x)<f(j+x+1)){
+                x +=j;
+            }
+        }
+
+        int k = x + 1;
+
