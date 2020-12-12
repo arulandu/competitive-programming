@@ -19,27 +19,41 @@ void handle_io(bool end, string filename=""){
 int main(){
   handle_io(true);
 
-  int n;
-  cin >> n;
-  int odd = 0;
-  int even = 0;
-  for(int i = 0; i < n; i++){
-    int x;
-    cin >> x;
-    if(x % 2 == 0){
-      even++;
-    } else {
-      odd++;
-    }
+  string ds[16] = {"N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"};
+
+
+  map<string, double> m;
+  for(int i = 0; i < 16; i++){
+    m.insert(make_pair(ds[i], 22.5*i));
   }
 
-  cout << min(odd, even) << '\n';
+  int n;
+  cin >> n;
+  for(int i = 0; i < n; i++){
+    string x;
+    cin >> x;
+    cout << x << " is " << m[x] << ((m[x] == (int)m[x])? ".0":"") << " degrees\n";
+  }
 
   return 0;
 }
 
 /*
-2 3 3 2 3 3
-(2, 3) (3, 2)
-
+16
+N
+NNE
+NE
+ENE
+E
+ESE
+SE
+SSE
+S
+SSW
+SW
+WSW
+W
+WNW
+NW
+NNW
 */

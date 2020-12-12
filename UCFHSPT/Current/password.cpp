@@ -18,21 +18,24 @@ void handle_io(bool end, string filename=""){
 
 int main(){
   handle_io(true);
-
-  int n, q;
-  cin >> n >> q;
-  ll h[n];
-  for(int i = 0; i < n; i++){
-    cin >> h[i];
+  ll t;
+  cin >> t;
+  while(t--){
+    int n;
+    cin >> n;
+    ll c = 1;
+    for(int i = 0; i < n; i++){
+      c *= 4;
+    }
+    cout << c << "\n";
   }
 
-  sort(h, h+n);
-
-  for(int i = 0; i < q; i++){
-    ll x, k;
-    cin >> x >> k;
-    cout << upper_bound(h, h+n, x+k) - lower_bound(h, h+n, x-k) << '\n';
-  }
 
   return 0;
 }
+
+/*
+2
+1
+3
+*/
