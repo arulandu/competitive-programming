@@ -31,16 +31,14 @@ bool isInside(const Point &p1, const Point &p2){
     (p2.x <= p1.x + p1.y - p2.y);
 }
 
-bool cmp1(const Point &p1, const Point &p2){
-  return p1.y > p2.y;
-}
+bool cmp(const pair<int, int> &p1, const pair<int, int> &p2){
+  int p1d = p1.second - p1.first;
+  int p2d = p2.second - p2.first;
+  if(p1d==p2d){
+    return (p1.first+p1.second) > (p2.first+p2.second);
+  }
 
-bool cmp2(const Point &p1, const Point &p2){
-  return (p1.y-p1.x) > (p2.y-p2.x);
-}
-
-bool cmp3(const Point &p1, const Point &p2){
-  return (p1.y+p1.x) > (p2.y+p2.x);
+  return p1d > p2d;
 }
 
 int main(){
@@ -50,55 +48,20 @@ int main(){
   cin >> N;
 
   // read in points
-  vector<Point> pts (N), ptsY (N), ptsDiff (N);
+  vector<pair<int, int>> pts (N);
   for(int i = 0; i < N; ++i){
-    cin >> pts[i].x >> pts[i].y;
-    pts[i].yScore = -1;
-    pts[i].sumScore = -1;
-    pts[i].diffScore = -1;
+    cin >> pts[i].first >> pts[i].second;
   }
+  sort(pts.begin(), pts.end(), cmp);
 
-  sort(pts.begin(), pts.end(), cmp1); // sort desc in y and update index "score"
-  for(int i = 0; i < N; i++){
-    pts[i].yScore = i;
-  }
-  ptsY = pts; // save this sorting
-  sort(pts.begin(), pts.end(), cmp2); // sort desc in y-x, update index "score"
-  for(int i = 0; i < N; i++){
-    pts[i].diffScore = i;
-  }
-  ptsDiff = pts; // save this sorting
-  sort(pts.begin(), pts.end(), cmp3); // sort desc in x+y, update index "score"
-  for(int i = 0; i < N; i++){
-    pts[i].sumScore = i;
-  }
-
+  int maxS = 0;
   int c = 0;
-  for(int i = 0; i < N; i++){
-    int q = min(min(pts[i].yScore, pts[i].sumScore), pts[i].diffScore); // find minimum of all scores
 
-    // search previous elements in corresponding array
-    if(q == pts[i].yScore){
-      for(int j = 0; j < q; j++){
-        if(isInside(ptsY[j], pts[i])){
-          goto skip;
-        }
-      }
-    } else if(q == pts[i].diffScore){
-      for(int j = 0; j < q; j++){
-        if(isInside(ptsDiff[j], pts[i])){
-          goto skip;
-        }
-      }
-    } else if(q == pts[i].sumScore){
-      for(int j = 0; j < q; j++){
-        if(isInside(pts[j], pts[i])){
-          goto skip;
-        }
-      }
+  for(int i = 0; i < N; i++){
+    if(maxS < pts[i].first + pts[i].second){
+      c++;
+      maxS = pts[i].first + pts[i].second;
     }
-    c++;
-    skip:;
   }
 
   cout << c << '\n';
