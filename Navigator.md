@@ -28,13 +28,16 @@ This file contains a list of CP topics and techniques that I can refer to if I g
 ## Prefix Sums
   - store an array such that ar[k] is the sum of the first kth elements in the original array
   - useful for counting objects in a certain range
+  ### 2D Prefix Sums
+  - useful for counting coordinates in some range
+  - compress points
 
 # Graph Algorithms
 ## DFS
   - Depth-first search recursively traverses a graph.
   - Look for ways to move code into the dfs instead of repetitive clearing operations.
   - Think about storing what component each node belongs too?
-  
+
 ### Flood Fill
   - DFS on a grid
 
