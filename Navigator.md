@@ -31,7 +31,10 @@ This file contains a list of CP topics and techniques that I can refer to if I g
 
 # Graph Algorithms
 ## DFS
-  - Depth-first search recursively traverses a graph
+  - Depth-first search recursively traverses a graph.
+  - Look for ways to move code into the dfs instead of repetitive clearing operations.
+  - Think about storing what component each node belongs too?
+  
 ### Flood Fill
   - DFS on a grid
 
