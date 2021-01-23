@@ -14,10 +14,15 @@ This file contains a list of CP topics and techniques that I can refer to if I g
 # Searches
 ## Binary Search
   - Time Complexity: O(log(n))
-  - Search on intended answer
+  - Search on intended answer. Look for ways to create a monotonic function given some parameters.
+  - Try thinking backwards (pass result as parameter and use constraints for function)
   - Can be used to find the maximum value of an increasing-then-decreasing function or minimum value of decreasing-then-increasing function
 ## Linear Search / Sweep
   - Simple iteration
+
+# Traversals
+## 2 pointers
+  - move 2 monotonic pointers across array to guarantee linear time
 
 # Range Sum Query Algorithms
 ## Prefix Sums
