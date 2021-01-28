@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-float isqrt(float n){
+float inverseSqrt(float n){
     long i;
     float x2, y;
     const float threehalves = 1.5F;
@@ -24,18 +24,3 @@ float isqrt(float n){
 
     return y;
 } 
-
-int main(){
-    // command line tool
-    float n;
-    while(true){
-        cout << "> ";
-        cin >> n;
-        if(n == 0){
-            break;
-        }
-        cout << isqrt(n) << '\n';
-    }
-    cout << "exited\n";
-    return 0;
-}
