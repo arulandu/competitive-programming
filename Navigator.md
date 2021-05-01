@@ -31,6 +31,8 @@ This file contains a list of CP topics and techniques that I can refer to if I g
   ### 2D Prefix Sums
   - useful for counting coordinates in some range
   - compress points
+  ### Max
+  - You can prefix sum on the maximum value
 
 # Graph Algorithms
 ## DFS
