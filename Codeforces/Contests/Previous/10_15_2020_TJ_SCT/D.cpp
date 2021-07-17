@@ -1,3 +1,0 @@
-/*
-MINIMUM SPANNING TREE (kruskals)
-*/
