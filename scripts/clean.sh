@@ -1,0 +1,1 @@
+find . -name "*.exe" -type f -delete
