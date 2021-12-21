@@ -31,6 +31,7 @@ This file contains a list of CP topics and techniques that I can refer to if I g
   ### 2D Prefix Sums
   - useful for counting coordinates in some range
   - compress points
+  - for range updates, set deltas +1 on bottom-left and top-right and -1 on top-left and bottom-right. then prefix sum. (USACO #919)
   ### Max
   - You can prefix sum on the maximum value
 

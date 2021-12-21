@@ -1,10 +1,11 @@
 #include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 #define ll long long
 
 void solve(){
-  
+  int n; cin >> n;
 }
 
 int main(){

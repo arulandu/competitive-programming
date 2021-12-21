@@ -3,43 +3,24 @@
 
 using namespace std;
 #define ll long long
+#define ld long double
 
-void handle_io(bool end, string filename=""){
-  if(end){
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-  }
-
-  if(filename.length() > 0){
-    freopen((filename+".in").c_str(), "r", stdin);
-    freopen((filename+".out").c_str(), "w", stdout);
-  }
+void solve(){
+  string s; cin >> s;
+  ld x, y; cin >> x >> y;
+  ll r = sqrtl(x*x+y*y);
+  // cout << x << ' ' << y << ' ' << r << '\n';
+  cout << s[r%s.size()] << '\n';
 }
 
 int main(){
-  handle_io(true);
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
 
-  int n;
-  cin >> n;
-  int odd = 0;
-  int even = 0;
-  for(int i = 0; i < n; i++){
-    int x;
-    cin >> x;
-    if(x % 2 == 0){
-      even++;
-    } else {
-      odd++;
-    }
+  int t; cin >> t;
+  while(t--){
+    solve();
   }
-
-  cout << min(odd, even) << '\n';
 
   return 0;
 }
-
-/*
-2 3 3 2 3 3
-(2, 3) (3, 2)
-
-*/
