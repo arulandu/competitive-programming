@@ -47,3 +47,6 @@ This file contains a list of CP topics and techniques that I can refer to if I g
 
 # Tree Algorithms
   - empty for now because i don't know that much CP
+
+# Binary
+  - Let p be the bitwise OR product of pairwise AND in an array. The k-th bit of p is set iff the # of elements in the array with the k-th bit set is > 1. (Source: CodeChef START21C ANDORUNI)
