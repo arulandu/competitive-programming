@@ -2,10 +2,6 @@
 This file contains a list of CP topics and techniques that I can refer to if I get stuck on a practice problem.
 
 # Sorts
-## Quick Sort
-  - Time Complexity: O(nlog(n))
-## Merge Sort
-  - Time Complexity: O(nlog(n))
 ## Cyclic Sort
   - Unstable sorting algorithm - doesn't always preserve order for elements that are equal
   - Time Complexity: O(n)
@@ -48,5 +44,18 @@ This file contains a list of CP topics and techniques that I can refer to if I g
 # Tree Algorithms
   - empty for now because i don't know that much CP
 
-# Binary
+# Dynamic Programming
+  Max # of selected elements such that each selected subarray with size > 1 has non-negative sum.
+  ```c++
+  int s = n, sm = 0, mn = 2e9; // s = # selected, sm = sum of current segment, mn = min sub array sum in current segment
+  for(int i = 0; i < n; i++){
+    if(a[i] + mn < 0){
+      s--; sm = 0; mn = 2e9;
+    } else {
+      sm += a[i]; mn = mn < 0 ? mn + a[i] : a[i];
+    }
+  }
+  ```
+
+# Bitwise
   - Let p be the bitwise OR product of pairwise AND in an array. The k-th bit of p is set iff the # of elements in the array with the k-th bit set is > 1. (Source: CodeChef START21C ANDORUNI)
