@@ -17,7 +17,7 @@ struct BIT {
   }
 
   // sum range [0, i]
-  ll query(int i) {
+  ll sum(int i) {
     ll sum = 0;
     for(++i; i > 0; i -= lsb(i)) sum += s[i];
     return sum;
