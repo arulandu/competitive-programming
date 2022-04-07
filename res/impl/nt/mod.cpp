@@ -21,8 +21,11 @@ pair<ll, ll> euclid(ll a, ll b){
 }
 
 ll gcd(ll a, ll b){
-  auto p = euclid(a, b);
-  return p.first*a+p.second*b;
+  return b == 0 ? a : gcd(b, a%b);
+}
+
+ll lcm(ll a, ll b){
+  return (a/gcd(a, b))*b;
 }
 
 ll inv(ll a, ll b){
