@@ -1,1 +1,0 @@
-for i in *; do mv "$i" $1"$i"; done
