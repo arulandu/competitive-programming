@@ -55,7 +55,7 @@ if [ "$1" = "setup" ]; then
 elif [ "$1" = "cleanup" ]; then
   cleanup
 else
-  if [ "$1" != "-h" ]; then
+  if [ "$1" != "-h" ] && [ "$1" != "" ]; then
     echo "'$1' is not a valid sub-command."
     echo ""
   fi

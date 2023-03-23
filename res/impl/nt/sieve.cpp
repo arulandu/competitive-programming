@@ -26,16 +26,16 @@ struct Sieve {
     for(int i = 0; i < N; i++) if(is_prime[i]) primes.push_back(i);
   }
 
-  int sp[SZ]{}; // smallest prime that divides
-  Sieve() {
-    for(int x = 2; x <= N; x++){
-      if(sp[i] == 0) {
-        sp[i] = i; primes.push_back(i);
-      }
-      for(int p: primes) {
-        if(p > sp[i] || i*p >= N) break;
-        sp[i*p] = p;
-      }
-    }
-  }
+  // int sp[N]{}; // smallest prime that divides
+  // Sieve() {
+  //   for(int x = 2; x <= N; x++){
+  //     if(sp[i] == 0) {
+  //       sp[i] = i; primes.push_back(i);
+  //     }
+  //     for(int p: primes) {
+  //       if(p > sp[i] || i*p >= N) break;
+  //       sp[i*p] = p;
+  //     }
+  //   }
+  // }
 };
