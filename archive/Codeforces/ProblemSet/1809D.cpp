@@ -29,17 +29,18 @@ void solve(){
     // for(auto x : v) cout << x << ' '; cout << '\n';
     if(j < v.size()-1){
       if(b && v[j+1] >= v[j] && v[j+1] > 1){
-        // cout << "delete " << j << '\n';
+        cout << "delete " << j << '\n';
         c += (C+1)*v[j]; // delete the 1 and move on
       } else {
+        b = false;
         // swap or delete zeros?
         if(v[j] == 1){
-          // cout << j << " swap thru " << j+1 << '\n';
+          cout << j << " swap thru " << j+1 << '\n';
           c += C*v[j+1]; // swap
           if(j+2 < v.size()) v[j+2] += v[j];
         } else {
           c += (C+1)*v[j+1]; // delete block
-          // cout << "delete " << j+1 << '\n';
+          cout << "delete " << j+1 << '\n';
           if(j+2 < v.size()) v[j+2] += v[j];
         }
       }
